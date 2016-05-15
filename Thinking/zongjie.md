@@ -5,30 +5,30 @@
 #### 过程
 
 1. HTML&CSS基础
-    1.1 块级元素及行内元素的区别
-    1.2 position属性不同值的不同表现
-    1.3 display属性不同值的不同表现
-    1.4 display : none 与 visibility : hidden 的区别 (前者在页面上占据地方，后者仅仅是不显示，但在页面上占据地方)
-    1.5 行内元素设置margin,padding时，左右生效，上下不生效
-    1.6 一个固定宽高的 div 水平垂直居中
-    1.7 CSS3属性(transform问的多)
-2. JS基础
-    2.1 闭包的简单应用
-    2.2 对于大数据的优化
-    2.3 原生Ajax与jquery的$.ajax()
-    2.4 $.ajax()为什么要以回调函数的形式调用函数
-    2.5 原生JS实现快排
-    2.6 ES6基本语法
-    2.7 原型，原型链实现继承
-3. 框架
-    3.1 简单介绍Bootstrap
-    3.2 Bootstrap的栅格系统
-    3.3 Bootsrtap的常用类名
-    3.4 简单实现一下栅格系统
-4. 其他
-    4.1 cookie 和 session
-    4.2 http协议形式和内容
-    4.3 SEO相关知识
+    1.1 块级元素及行内元素的区别  
+    1.2 position属性不同值的不同表现  
+    1.3 display属性不同值的不同表现  
+    1.4 display : none 与 visibility : hidden 的区别 (前者在页面上占据地方，后者仅仅是不显示，但在页面上占据地方)  
+    1.5 行内元素设置margin,padding时，左右生效，上下不生效  
+    1.6 一个固定宽高的 div 水平垂直居中  
+    1.7 CSS3属性(transform问的多)  
+2. JS基础  
+    2.1 闭包的简单应用  
+    2.2 对于大数据的优化  
+    2.3 原生Ajax与jquery的$.ajax()  
+    2.4 $.ajax()为什么要以回调函数的形式调用函数  
+    2.5 原生JS实现快排  
+    2.6 ES6基本语法  
+    2.7 原型，原型链实现继承  
+3. 框架  
+    3.1 简单介绍Bootstrap  
+    3.2 Bootstrap的栅格系统  
+    3.3 Bootsrtap的常用类名  
+    3.4 简单实现一下栅格系统  
+4. 其他   
+    4.1 cookie 和 session  
+    4.2 http协议形式和内容  
+    4.3 SEO相关知识  
 
 ####总结
 
