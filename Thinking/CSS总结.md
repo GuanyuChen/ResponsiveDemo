@@ -75,22 +75,78 @@ CSS本质可以分为宏观和微观两部分。宏观上它的存在就是为�
         + *number* : 设置元素的堆叠顺序
         + inherit : 从父元素继承z-index属性的值
 * 盒模型 
-    - width: 
-    - height:
-    - padding: 
-    - margin:
-    - border:
+    ![盒模型概述][img2]
+    PS:盒模型分为W3C标准盒模型和ie盒模型  
+    W3C标准盒模型包括：margin,border,padding,content,并且 **content部分不包含其他部分** 。  
+    IE盒模型也包括margin,border,padding,content,但 **content部分包括border和padding** 。  
+    在文档头部加上`<!DOCTYPE html>`声明,就会按W3C标准盒模型来解析。
+    - width: content区域的宽度
+    - height: content区域的高度
+    - padding: 内边距 (元素内容与元素边框间的空白区域，不允许负值)
+    - margin: 外边距 (margin在元素外创建额外的空白,可以是负值，很多情况下都会用到margin的负值)
+    PS : 当值为百分比时，百分数值相对于其父元素的width计算的
+    - 外边距合并 ( **当两个垂直外边距相遇时，它们将形成一个大外边距。合并后的外边距的高度等于；两个发生合并的外边距中高度较大者** )
+    PS : 只有 **普通文档流** 中 **块框** 的 **垂直外边距** 才会发生外边距合并， **行内框** ， **浮动框** 或 **绝对定位** 之间的外边距不会合并。
+    - border: 边框 (有三个方面，宽度，样式，颜色)
+        + border-style (样式)
+            * none 无边框
+            * hidden 
+            * dotted 点状边框。大多数浏览器中呈现实线
+            * dashed 虚线。大多数浏览器中呈现实线
+            * solid 实线
+            * double 双线
+            * groove 3D凹槽边框，效果取决于`border-color`
+            * ridge 3D垄状边框
+            * inset 3Dinset边框
+            * outset 3Doutset边框
+            * inherit 从父元素继承
+        PS:可以为四条边分别设置`border-top-style`,`border-right-style`...
+            合写顺序为 **上右下左**
+        + border-width (宽度) 只有style不是none时才起作用
+            * thin 细的
+            * medium 默认 中等宽度
+            * thick 粗的
+            * *length* 数值
+            * inherit 从父元素继承
+        + border-color (颜色)
+            * transparent 默认 透明
+    PS : 背景应用于content和padding、border组成的区域
 * 颜色、背景
     - color: 
     - background: 
-        + -color:
-        + -image:
-        + -repeat:
-        + -position:
-        + -attachment:
-        + -size:
-        + -clip:
-        + -origin:
+        + -color: 默认值 transparent 透明 可以为所有元素设置背景色，包括 **行内元素** 
+        + -image: 
+            * url('URL') 指向图像的路径
+            * none 默认值 不显示背景图像
+            * inherit 从父元素继承
+        + -repeat: **设置是否及如何重复背景图像**
+            * repeat 默认值 背景图像在水平和垂直方向重复
+            * repeat-x 在水平方向上重复
+            * repeat-y 在垂直方向上重复
+            * no-repeat 不重复
+            * inherit 从父元素继承
+        + -position: **设置背景图像的起始位置** 
+            * 方位值 : 两个参数 表示水平方向的方位(left center bottom) 表示垂直方向的方位(top center bottom) **当仅设置一个值时，第二个值默认为center**
+            * x% y% : 第一个值是水平位置 第二个值是垂直位置 左上角是0% 0% 右下角是100% 100% 如果仅规定一个值，第二个值是50%
+            * 像素值 像素值 : 第一个值是水平位置 第二个值是垂直位置 可以与百分比混用。
+        + -attachment: **设置固定的背景图像**
+            * scroll 默认值 背景图像随着其余部分的滚动而移动
+            * fixed 当页面其他部分滚动时，背景图像不会移动
+            * inherit 从父元素继承
+        + -size: **规定背景图像的尺寸**
+            * *length* 宽度和高度。如果只设置一个值，后一个值为auto
+            * 百分比 以父元素的百分比来设置背景图像的宽度和高度
+            * cover 把背景图像扩展至足够大，时完全覆盖背景区域，有些部分可能无法显示在背景定位区域中
+            * contain 把图像扩展至最大在尺寸，**使宽度和高度完全适应内容区域**
+        + -clip: **规定背景的绘制区域**
+            * border-box 背景被裁剪到边框盒(背景区域content+padding+border)
+            * padding-box 背景被裁剪到内边距盒(背景区域content+padding)
+            * content-box 内容盒(背景区域只有content)
+        + -origin: **规定background-position属性相对于什么位置来定位**
+        PS : 当background-attachment值为fixed时，此属性失效
+            * border-box 相对于边框盒
+            * padding-box 相对于内边距盒
+            * content-box 相对于内容盒子
 * 字体
     - -family:
     - -weight:
@@ -124,3 +180,4 @@ CSS本质可以分为宏观和微观两部分。宏观上它的存在就是为�
 
 
 [img1]: ../imgs/csszongjie.png "tututu"
+[img2]: ../imgs/ct_boxmodel.gif "概述"
