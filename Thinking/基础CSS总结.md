@@ -271,5 +271,301 @@ IE9、Firefox、Chrome、Opera和Safari使用属性 `opacity` 来透明度，从
 
 #### CSS3
 
+##### 边框
+
+* border-radius
+    - 圆角边框(设置边框四个角的弧度)
+    - 上右下左或简写
+    - px 或 %
+* box-shadow
+    - 阴影边框(向框添加一个或多个阴影)
+    - 每个阴影由2-4个长度值、可选的颜色值、及可选的inset关键词来决定，省略的长度值是0
+    - h-shadow(水平阴影的位置) 必需 允许负值
+    - v-shadow(垂直阴影的位置) 必需 允许负值
+    - blur(模糊距离) 可选
+    - spread(阴影的尺寸) 可选
+    - color(阴影的颜色) 可选
+    - inset(可将外部阴影改为内部阴影) 可选
+    - 例 : box-shadow:10px 10px 5px 5px blue inset;(水平位置，垂直位置，模糊距离，阴影尺寸，颜色，内部阴影)
+* border-image
+    - 用于边框的图片
+    - URL 图片路径
+    - 内偏移
+    - 图片边框的宽度
+    - 边框区域超出边框的量
+    - 图像边框是否应平铺(repeated)、铺满(rounded)、拉伸(stretched)
+
+##### 文本
+
+* text-overflow
+    - 当文本溢出包含元素时
+    - clip 修剪元素
+    - ellipsis 显示省略号来代表被修剪的文本
+    - *string* 使用给定的字符串来显示被省略的文本
+* text-shadow
+    - 文本阴影
+    - h-shadow 水平阴影的位置 允许负值
+    - v-shadow 垂直阴影的位置 允许负值
+    - blur 模糊的距离 可选
+    - color 颜色
+* text-wrap
+    - 文本的换行规则
+    - normal 只在允许的换行点进行换行
+    - none 不换行 元素无法容纳的文本会溢出
+    - unrestricted 在任意两个字符间换行
+    - suppres 压缩元素中的换行。浏览器只在行中没有其他有效换行点时进行换行。
+* word-break
+    - 在恰当的断字点换行
+    - normal 默认换行规则
+    - break-all 允许在单词内换行
+    - keep-all 只能在半角空格或连字符处换行
+* word-wrap
+    - 允许长单词或URL换行到下一行
+    - normal
+    - break-word 在长单词或 URL 地址内部进行换行。
+
+##### 字体
+
+```
+@font-face
+{
+font-family: myFirstFont;   /*先定义字体名称*/
+src: url('Sansation_Light.ttf'),    /*再引入字体文件*/
+     url('Sansation_Light.eot'); /* IE9+ */
+}
+
+div{
+    font-family:myFirstFont;    /*引用字体*/
+}
+```
+
+若想使用粗体文本，需再添加另一个包含描述符的@font-face
+
+```
+@font-face
+{
+font-family: myFirstFont;   /*粗体字体名字跟上面正常的一样*/
+src: url('Sansation_Bold.ttf'), /*另一个字体文件，包含了上面字体的粗体字符*/
+     url('Sansation_Bold.eot'); /* IE9+ */
+font-weight:bold;
+}
+```
+
+##### 转换
+
+###### 2D转换
+
+Internet Explorer 10、Firefox 以及 Opera 支持 transform 属性。
+
+* Chrome 和 Safari 需要前缀 -webkit- 
+* IE9 需要 -ms-
+* Opera 需要 -o-
+* FireFox 需要 -mox-
+
+**transform** :
+* translate(xpx , ypx) //从左侧移动xpx 从顶端移动ypx
+    - translateX(xpx)
+    - translateY(ypx)  //只在一个轴上移动
+* rotate(xdeg)         //顺时针旋转指定的角度(deg)
+* scale(x , y)         //把元素的宽度转换为原始尺寸的x倍 把元素的高度转换为原始尺寸的y倍
+    - scaleX(x)        
+    - scaleY(y)        //只改变宽度或高度
+* skew(xdeg , ydeg)          //围绕x轴把元素翻转x度 围绕y轴把元素翻转y度
+    - skewX(x)         
+    - skewY(y)         //只在一个轴上翻转
+
+###### 3D转换
+
+Internet Explorer 10 和 Firefox 支持 3D 转换。
+
+Chrome和Safari需要前缀-webkit-
+
+opera不支持
+
+* rotateX(xdeg)         //围绕x轴以给定的度数进行旋转
+* rotateY(ydeg)         //围绕y轴以给定的度数进行旋转
+
+**transform-origin(20%,40%)** 
+* 设置旋转元素的基点位置,x轴，y轴(如果是3D转换，再加一个z轴方向的值)
+* 必须与tarnsform元素一起使用
+* IE9 -ms- 仅适用于2D转换
+* chrome/safari -webkit-
+* opera只支持2D转换 
+
+**transform-style** 
+* 如何在3D空间内呈现被嵌套的元素
+* flat 子元素不保留其3D位置
+* preserve-3d 子元素保留其3D位置
+* IE不支持
+* -weblit-
+
+##### 过渡
+
+transtion,过渡是元素从一种样式逐渐改变为另一种的效果。
+
+PS : 过渡效果通常在用户将鼠标指针浮动到元素上时发生。
+
+必须规定两点内容：
+* 把过渡效果添加到哪个属性上
+* 效果的时长(时长如果没规定，则不会有过渡效果)
+
+例：
+```
+div
+{
+transition: width 2s;
+-moz-transition: width 2s;  /* Firefox 4 */
+-webkit-transition: width 2s;   /* Safari 和 Chrome */
+-o-transition: width 2s;    /* Opera */
+}
+```
+
+如需向多个样式添加过渡效果，请添加多个属性，由逗号隔开
+
+```
+div
+{
+transition: width 2s, height 2s, transform 2s;
+-moz-transition: width 2s, height 2s, -moz-transform 2s;
+-webkit-transition: width 2s, height 2s, -webkit-transform 2s;
+-o-transition: width 2s, height 2s,-o-transform 2s;
+}
+```
+
+**transtion-property** 应用过渡效果的属性名称
+* Internet Explorer 10、Firefox、Opera 和 Chrome 支持 transition-property 属性。
+* Safari 支持替代的 -webkit-transition-property 属性。
+* none 没有属性获得过渡效果
+* all 所有属性获得过渡效果
+* *property* 定义应用过渡效果的CSS属性名称列表，列表以逗号分隔
+
+**transtion-duration** 过渡效果持续时间
+* Internet Explorer 10、Firefox、Opera 和 Chrome 支持 transition-duration 属性。
+* Safari 支持替代的 -webkit-transition-duration 属性。
+
+**transtion-timing-function**  过渡效果的速度曲线
+* Internet Explorer 10、Firefox、Opera 和 Chrome 支持 transition-timing-function 属性。
+* Safari 支持替代的 -webkit-transition-timing-function 属性。
+* linear 匀速
+* ease 慢头快中慢尾
+* ease-in 慢头
+* ease-out 慢尾
+* ease-in-out 慢头慢尾
+
+**transtion-delay** 过渡效果开始前的等待
+* Internet Explorer 10、Firefox、Opera 和 Chrome 支持 transition-delay 属性。
+* Safari 支持替代的 -webkit-transition-delay 属性。
+
+##### 动画
+
+CSS3用 **@keyframes** 和 **animation** 实现
+
+用 @keayframes 创建动画，用 animation 将动画绑定到选择器
+
+animation
+* 规定动画的名称
+* 规定动画的时长
+
+```
+@keyframes myfirst
+{
+from {background: red;}/*from to 也可以改成0-100%*/
+to {background: yellow;}
+}
+@-moz-keyframes myfirst /* Firefox */
+{
+from {background: red;}
+to {background: yellow;}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+from {background: red;}
+to {background: yellow;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+from {background: red;}
+to {background: yellow;}
+}
+
+div
+{
+animation: myfirst 5s;
+-moz-animation: myfirst 5s; /* Firefox */
+-webkit-animation: myfirst 5s;  /* Safari 和 Chrome */
+-o-animation: myfirst 5s;   /* Opera */
+}
+```
+
+* animation-name 动画名称
+* animation-duration 动画一次的周期 默认是0
+* animation-timing-function 动画的速度曲线 默认ease
+* animation-delay 动画延迟时间 默认是0
+* animation-iteration-count 动画被播放次数 默认1
+* animation-direction 规定动画是否方向轮流播
+    - normal 默认值 动画正常播放
+    - alternate 反向轮流播放
+* animation-play-state 规定动画运行状态
+    - 在JavaScript中使用该属性，就可以在播放过程中暂停动画
+    - paused 动画已暂停
+    - running 动画正在播放
+
+##### 多列
+
+* Internet Explorer 10 和 Opera 支持多列属性。
+* Firefox 需要前缀 -moz-。
+* Chrome 和 Safari 需要前缀 -webkit-。
+
+* column-count 元素应该被分割的列数 
+* column-gap 列与列之间的间隔
+* column-rule 规定列之间的宽度、样式和颜色规则
+    - column-rule-style 样式规则
+        + none 
+        + hidden
+        + dotted 点状
+        + dashed 虚线
+        + solid 实线
+        + double 双线
+* column-span 规定元素应该横跨多少列
+    - 1 横跨一列
+    - all 横跨所有列
+* column-width 列的宽度
+* columhs 简写属性 列的宽度 和 列数
+
+##### 用户界面
+
+* appearance 
+    - 所有主流浏览器都不支持 appearance 属性。
+    - Firefox 支持替代的 -moz-appearance 属性。
+    - Safari 和 Chrome 支持替代的 -webkit-appearance 属性。
+    - normal 将元素呈现为常规元素
+    - icon 呈现为图标
+    - window 呈现为视口
+    - button 呈现为按钮
+    - menu 呈现为菜单
+    - field 呈现为输入字段
+* box-sizing 
+    - content-box width与height只影响content 不涉及border和padding
+    - border-box width与height影响边框盒，即border+padding+content
+    - inherit
+* outline-offset
+    - 除了IE，主流浏览器都支持
+    - 对轮廓进行偏移，并在边框边缘进行绘制
+    - 轮廓与边框的区别：
+        + 轮廓不占用空间
+        + 轮廓可能是非矩形
+    - *length* 轮廓到边缘的距离
+    - inherit
+* resize
+    - Firefox 4+、Chrome 以及 Safari 不支持 resize。
+    - 是否允许用户调整元素的尺寸
+    PS : 如想此属性生效，需设置overflow属性，值可以是auto，hidden，scroll
+    - none 用户无法调整尺寸
+    - both 用户可调整宽高
+    - horizontal 宽
+    - vertical 高
+
 [img1]: ../imgs/csszongjie.png "tututu"
 [img2]: ../imgs/ct_boxmodel.gif "概述"
