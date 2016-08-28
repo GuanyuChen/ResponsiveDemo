@@ -1,0 +1,81 @@
+ul{
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+li{
+	list-style-type: none;
+}
+
+nav,nav-submenu-list{
+	background-color: #25383c;
+	text-align: center;/*文字水平居中*/
+	/* height: 30px;
+	line-height: 30px;文字垂直居中 */
+}
+
+.nav-container-list{
+	max-width: 1280px;/*规定最大宽度*/
+	margin: 0 auto;
+	display: none;
+}
+
+/* .nav-list-item{
+	color: white;
+	width: 25%;
+	width: calc(100%/4);
+	float: left;
+	display: inline-block;
+	position: relative;
+} */
+
+.nav-list-item a{
+	display: block;/*只有块级元素上下内边距才会起作用*/
+	padding: 20px 40px;/*使用内边距会扩展a的可点击区域*/
+	color: white;
+}
+
+.nav-submenu-list{
+	background: #25683b;
+	display: none;
+/* 	position: absolute;
+top: 100%;
+left: 0; */
+}
+
+.nav-list-item:hover>ul{
+	display: block;
+}
+
+.menu-btn{
+	border: none;
+	padding: 8px 0;
+}
+
+.btn-icon-close{
+	background: #E0FFFF;
+}
+
+.btn-icon-menu{
+	background: #D4D4D4;
+}
+
+.menu-btn-icon{
+	border: none;
+	width: 30px;
+	height: 30px;
+	float: left;
+	cursor: pointer;
+	margin-left: 10px
+}
+
+.clearfix{
+	clear: both;
+	content: '';
+	display: block;
+}

@@ -2,10 +2,50 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<!--通过viewport设置宽度为设备宽度，缩放比为1，禁止用户缩放-->
-	<meta name="viewport" content="width=device-width,initial-scale=1,maxium-scale=1,user-scalable=no">
-	<title>初入江湖</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>响应式设计练习</title>
+	<link rel="stylesheet" type="text/css" href="./css/nav.css">
+	<script type="text/javascript">
+		window.onload = function(){
+			var btn = document.querySelector('.menu-btn-icon'),
+				menu = document.querySelector('.nav-container-list')
+				menuIsCollapse = true;
+
+			btn.onclick = function(){
+				menuIsCollapse = !menuIsCollapse;
+				if(menuIsCollapse){
+					menu.style.display = 'none';
+					btn.classList.remove('btn-icon-close');
+					btn.classList.add('btn-icon-menu');
+				}else{
+					menu.style.display = 'block';
+					btn.classList.remove('btn-icon-menu');
+					btn.classList.add('btn-icon-close');
+				}
+			}
+		}
+	</script>
 </head>
 <body>
+	<nav>
+		<div class="menu-btn">
+			<a href="javascript:void(0)" class="menu-btn-icon btn-icon-close"></a>
+			<div class="clearfix"></div>
+		</div>
+		<ul class="nav-container-list">
+			<li class="nav-list-item">
+				<a href="">item1</a>
+				<ul class="nav-submenu-list">
+					<li class="nav-submenu-item"><a href="">subitem1</a></li>
+					<li class="nav-submenu-item"><a href="">subitem2</a></li>
+					<li class="nav-submenu-item"><a href="">subitem3</a></li>
+					<li class="nav-submenu-item"><a href="">subitem4</a></li>
+				</ul>
+			</li>
+			<li class="nav-list-item"><a href="">item2 a long item</a></li>
+			<li class="nav-list-item"><a href="">it</a></li>
+			<li class="nav-list-item"><a href="">item4</a></li>
+		</ul>
+	</nav>
 </body>
 </html>
