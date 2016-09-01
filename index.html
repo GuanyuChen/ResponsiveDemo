@@ -5,10 +5,12 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>响应式设计练习</title>
 	<link rel="stylesheet" type="text/css" href="./css/nav.css">
+	<link rel="stylesheet" type="text/css" href="./css/flexbox.css">
 	<script type="text/javascript">
 		window.onload = function(){
 			var btn = document.querySelector('.menu-btn-icon'),
-				menu = document.querySelector('.nav-container-list')
+				menu = document.querySelector('.nav-container-list'),
+				mql = window.matchMedia('(min-width:480px)'),
 				menuIsCollapse = true;
 
 			btn.onclick = function(){
@@ -23,16 +25,37 @@
 					btn.classList.add('btn-icon-close');
 				}
 			}
+
+			function mediaChangeHandler(mql){
+				//匹配成功，导航栏宽度大于480px
+				//则无论如何也显示导航栏
+				
+				if(mql.matches){
+					menu.style.display = '';
+					console.log(1);
+				}else{
+					if(menuIsCollapse){
+						menu.style.display = 'none';
+					}else{
+						menu.style.display = '';
+					}
+				}
+			}
+
+			mql.addListener(mediaChangeHandler);
+			mediaChangeHandler(mql);
+
+
 		}
 	</script>
 </head>
 <body>
-	<nav>
+	<nav class="">
 		<div class="menu-btn">
 			<a href="javascript:void(0)" class="menu-btn-icon btn-icon-close"></a>
 			<div class="clearfix"></div>
 		</div>
-		<ul class="nav-container-list">
+		<ul class="nav-container-list flex-enable flex-row flex-justify-space-around">
 			<li class="nav-list-item">
 				<a href="">item1</a>
 				<ul class="nav-submenu-list">
@@ -46,6 +69,7 @@
 			<li class="nav-list-item"><a href="">it</a></li>
 			<li class="nav-list-item"><a href="">item4</a></li>
 		</ul>
+		<div class="clearfix"></div>
 	</nav>
 </body>
 </html>

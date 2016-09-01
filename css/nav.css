@@ -79,3 +79,26 @@ left: 0; */
 	content: '';
 	display: block;
 }
+
+@media all and (min-width:480px){
+	.nav-list-item{
+		display: inline-block;
+		position: relative;
+	}
+
+	.nav-submenu-list{
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 100%;
+	}
+
+	.nav-container-list{
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+
+	.menu-btn{
+		display: none;
+	}
+}
