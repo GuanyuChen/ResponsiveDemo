@@ -16,6 +16,17 @@
 	flex-direction: row;
 }
 
+/*子元素竖向排列*/
+.flex-column{
+	-mox-box-direction: column;
+	-webkit-box-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-ms-flexbox-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
 /*子元素平均分布*/
 .flex-justify-space-around{
 	justify-content: space-around;

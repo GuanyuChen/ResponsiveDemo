@@ -1,0 +1,49 @@
+header{
+	display: block;
+	/*移动优先*/
+	font-size: 1.25rem;/*根元素字体大小的2.5倍*/
+	font-weight: 700;
+
+	height: 500px;/*回滚*/
+	height: 80vh;
+
+	min-height: 100px;
+	max-height: 1080px;
+
+	background: url('../imgs/header-background.jpg');
+	-webkit-background-size: cover;
+	background-size: cover;
+
+	position: relative;
+}
+
+.header-text-container{
+	text-align: center;
+	color: white;
+	text-shadow: 1px 1px 4px rgba(34, 34, 34, 0.6);
+
+	width: 50%;
+	height: 30%;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+}
+
+.header-article_title{
+	font-size: 2em;
+}
+
+.header-article_pub{
+	display: block;
+	font-size: 1em;
+}
+
+/*设置断点 屏幕大于480px时，字体放大*/
+@media all and (min-width: 480px){
+	header{
+		font-size: 2.5rem;
+	}
+}
