@@ -55,14 +55,13 @@ left: 0; */
 .menu-btn{
 	border: none;
 	padding: 8px 0;
+	font-size: 22px;
 }
 
-.btn-icon-close{
-	background: #E0FFFF;
-}
-
-.btn-icon-menu{
-	background: #D4D4D4;
+.menu-btn:after,.nav-container-list:after{
+	content: "";
+	display: block;
+	clear: both;
 }
 
 .menu-btn-icon{

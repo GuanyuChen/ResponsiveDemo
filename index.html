@@ -6,6 +6,7 @@
 	<title>响应式设计练习</title>
 	<link rel="stylesheet" type="text/css" href="./css/global.css">
 	<link rel="stylesheet" type="text/css" href="./css/header.css">
+	<link rel="stylesheet" type="text/css" href="./icomoon/style.css">
 	<link rel="stylesheet" type="text/css" href="./css/nav.css">
 	<link rel="stylesheet" type="text/css" href="./css/flexbox.css">
 	<link rel="stylesheet" type="text/css" href="./css/article.css">
@@ -20,12 +21,12 @@
 				menuIsCollapse = !menuIsCollapse;
 				if(menuIsCollapse){
 					menu.style.display = 'none';
-					btn.classList.remove('btn-icon-close');
-					btn.classList.add('btn-icon-menu');
+					btn.classList.remove('icon-cross');
+					btn.classList.add('icon-menu');
 				}else{
 					menu.style.display = 'block';
-					btn.classList.remove('btn-icon-menu');
-					btn.classList.add('btn-icon-close');
+					btn.classList.remove('icon-menu');
+					btn.classList.add('icon-cross');
 				}
 			}
 
@@ -55,8 +56,7 @@
 <body>
 	<nav>
 		<div class="menu-btn">
-			<a href="javascript:void(0)" class="menu-btn-icon btn-icon-close"></a>
-			<div class="clearfix"></div>
+			<a href="javascript:void(0)" class="menu-btn-icon icon icon-menu"></a>
 		</div>
 		<ul class="nav-container-list flex-enable flex-row flex-justify-space-around">
 			<li class="nav-list-item">
@@ -72,7 +72,6 @@
 			<li class="nav-list-item"><a href="javascript:void(0)">it</a></li>
 			<li class="nav-list-item"><a href="javascript:void(0)">item4</a></li>
 		</ul>
-		<div class="clearfix"></div>
 	</nav>
 	<header>
 		<div class="header-text-container">
